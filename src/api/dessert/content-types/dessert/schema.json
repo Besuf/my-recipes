@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "desserts",
+  "info": {
+    "singularName": "dessert",
+    "pluralName": "desserts",
+    "displayName": "Dessert",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "recipe": {
+      "type": "richtext"
+    },
+    "difficulty": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::difficulty.difficulty",
+      "inversedBy": "desserts"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
